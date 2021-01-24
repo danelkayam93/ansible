@@ -1,6 +1,6 @@
 ---
 - name: Maintenance on TSE
-  hosts: "windows"
+  hosts: all
 
   vars:
       Message: Bonjour, le serveur doit redemarrer dans 1 heure, n'oubliez pas de sauvegarder vos travaux.
