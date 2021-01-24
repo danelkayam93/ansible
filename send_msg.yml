@@ -1,0 +1,14 @@
+---
+- name: Maintenance on TSE
+  hosts: "windows"
+
+  vars:
+      Message: Bonjour, le serveur doit redemarrer dans 1 heure, n'oubliez pas de sauvegarder vos travaux.
+
+  tasks:
+  - name: Ping TSE
+    win_ping:
+
+  - name: Send msg
+    win_shell: msg.exe /server:Win2016-Ansible * "{{ Message }}"
+...
