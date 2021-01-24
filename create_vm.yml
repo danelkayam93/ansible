@@ -1,0 +1,29 @@
+---
+ - name: Create a Machine from a template
+   hosts: localhost
+   tasks:
+   - name: Create a VM
+     vmware_guest:
+      hostname: 172.180.0.200
+      username: administrator@vsphere.local
+      password: 'Sido*313*'
+      validate_certs: no
+      name: Vmtest
+      state: present
+      datacenter : Datacenter
+      datastore: datastore1
+      folder: /VMAnsible
+      guest_id: ubuntuGuest
+      disk:
+      - size_gb: 1
+        type: thin
+      hardware:
+       memory_mb: 512
+       num_cpus: 2
+      networks:
+      - name: 'VM Network'
+        mac: aa:bb:dd:aa:00:14
+        ip: 172.180.0.152
+        netmask: 255.255.255.0
+     register: deploy
+...
